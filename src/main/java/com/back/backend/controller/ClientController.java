@@ -28,15 +28,15 @@ public class ClientController {
 
     }
 
-    @PutMapping("/id")
+    @PutMapping(value = "/{id}")
     public ResponseEntity<Client> updateClient(@PathVariable Long id, @RequestBody Client client) {
         Client updateClient = clientService.updateClient(id, client);
         return ResponseEntity.ok(updateClient);
 
     }
 
-    @DeleteMapping()
-    public ResponseEntity<Client> deleteClient(Long id) {
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Client> deleteClient(@PathVariable Long id) {
         clientService.ClientdeleteClient(id);
         return ResponseEntity.noContent().build();
     }
